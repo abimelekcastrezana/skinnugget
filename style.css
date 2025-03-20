@@ -1,0 +1,60 @@
+body {
+	text-align: center;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.tools {
+	margin: 10px;
+}
+
+.tools button.selected {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* Contenedor de 512x512 que muestra la imagen de referencia y la cuadrícula */
+#canvasContainer {
+	position: relative;
+	width: 512px;
+	height: 512px;
+	margin: 0 auto;
+	/* Centra horizontalmente */
+
+	/* Fondo compuesto:
+     1) Cuadrícula repetida cada 8px (para alinear con 64×64 -> 512×512)
+     2) Imagen de referencia escalada a 512×512
+  */
+	background-image:
+		/* Cuadrícula vertical */
+		linear-gradient(to right, rgba(0, 0, 0, 0.2) 1px, transparent 1px),
+		/* Cuadrícula horizontal */
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 1px, transparent 1px),
+		/* Imagen de referencia */
+		url('steve.png');
+	background-size:
+		8px 8px,
+		/* cuadrícula vertical */
+		8px 8px,
+		/* cuadrícula horizontal */
+		512px 512px;
+	/* imagen escalada a 512×512 */
+	background-repeat: repeat, repeat, no-repeat;
+	background-position: 0 0, 0 0, center;
+	opacity: 0.8;
+	/* Semitransparencia para el fondo */
+}
+
+/* El canvas se coloca encima del fondo */
+#skinCanvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 512px;
+	/* igual al contenedor */
+	height: 512px;
+	border: 1px solid black;
+	image-rendering: pixelated;
+	cursor: crosshair;
+}

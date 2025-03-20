@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Editor de Skins de Minecraft</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<h1>SkinNugget</h1>
+	<h1>Editor de skins de Minecraft</h1>
+
+	<div class="tools">
+		<input type="color" id="colorPicker" value="#000000">
+		<button id="pencilBtn" onclick="setTool('pencil')" class="selected">Lápiz</button>
+		<button id="eraserBtn" onclick="setTool('eraser')">Borrador</button>
+		<button onclick="clearCanvas()">Borrar Todo</button>
+		<button onclick="downloadSkin()">Descargar Skin</button>
+		<button onclick="undo()">Undo</button>
+		<button onclick="redo()">Redo</button>
+	</div>
+
+	<!-- Contenedor con la cuadrícula y la imagen de referencia -->
+	<div id="canvasContainer">
+		<canvas id="skinCanvas" width="512" height="512"></canvas>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
